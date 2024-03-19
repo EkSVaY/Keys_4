@@ -24,3 +24,7 @@ def main():
             pass
         elif vote == 'no':
             break
+
+
+if __name__ == '__main__':
+    main()
