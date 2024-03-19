@@ -42,6 +42,19 @@ def main():
             pass
         elif vote == 'no':
             break
+    for index in range(len(countries)):
+
+        if (det_protection(protectionism[index]) and medium_candy_shops(population[index], factories[index])
+                and analysis(love_candy[index])):
+            need_fabrics = need_shops(population[index], factories[index])
+            amount += need_fabrics
+
+            print(f"{ru.COUNTRY} - {countries[index]}. {ru.NEED}: {need_fabrics}")
+        else:
+            print(f"{ru.COUNTRY} - {countries[index]}. {ru.NOT_GO}!")
+
+    print(f"\n{ru.ALL}: {amount}")
+
 
 
 if __name__ == '__main__':
