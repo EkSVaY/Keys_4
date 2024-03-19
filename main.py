@@ -3,6 +3,7 @@
 #
 import ru_local as ru
 
+
 def det_protection(protectionism):
     '''
     The function returns true or false, depending on whether the country is pursuing
@@ -23,16 +24,6 @@ def medium_candy_shops(people, candy_shops):
     return candy_shops < (people // 100000) + 1
 
 
-def need_shops(people, candy_shops):
-    '''
-    The function determines how many
-    factories need to be built in the country
-    '''
-    if people % 100000 == 0:
-        return (people // 100000) - candy_shops
-    return ((people // 100000) + 1) - candy_shops
-
-
 def analysis(n):
     '''
     the function returns true if the number of people
@@ -45,6 +36,8 @@ def analysis(n):
             return True
         case _:
             return False
+
+
 def main():
     countries = []
     protectionism = []
@@ -69,7 +62,8 @@ def main():
 
         if (det_protection(protectionism[index]) and medium_candy_shops(population[index], factories[index])
                 and analysis(love_candy[index])):
-            need_fabrics = need_shops(population[index], factories[index])
+            need_fabrics = (population[index] // 100000) - factories[index] if population[index] % 100000 == 0 \
+                else ((population[index] // 100000) + 1) - factories[index]
             amount += need_fabrics
 
             print(f"{ru.COUNTRY} - {countries[index]}. {ru.NEED}: {need_fabrics}")
@@ -77,7 +71,6 @@ def main():
             print(f"{ru.COUNTRY} - {countries[index]}. {ru.NOT_GO}!")
 
     print(f"\n{ru.ALL}: {amount}")
-
 
 
 if __name__ == '__main__':
