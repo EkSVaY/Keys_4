@@ -22,6 +22,29 @@ def medium_candy_shops(people, candy_shops):
         return candy_shops < (people // 100000)
     return candy_shops < (people // 100000) + 1
 
+
+def need_shops(people, candy_shops):
+    '''
+    The function determines how many
+    factories need to be built in the country
+    '''
+    if people % 100000 == 0:
+        return (people // 100000) - candy_shops
+    return ((people // 100000) + 1) - candy_shops
+
+
+def analysis(n):
+    '''
+    the function returns true if the number of people
+     who love sweets is greater than or equal to 6
+    '''
+    match n:
+        case 0 | 1 | 2 | 3 | 4 | 5:
+            return False
+        case 6 | 7 | 8 | 9 | 10:
+            return True
+        case _:
+            return False
 def main():
     countries = []
     protectionism = []
