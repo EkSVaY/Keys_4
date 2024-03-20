@@ -29,13 +29,10 @@ def analysis(n):
     the function returns true if the number of people
      who love sweets is greater than or equal to 6
     '''
-    match n:
-        case 0 | 1 | 2 | 3 | 4 | 5:
-            return False
-        case 6 | 7 | 8 | 9 | 10:
-            return True
-        case _:
-            return False
+    if 0 <= n <= 5:
+        return False
+    elif n >= 6:
+        return True
 
 
 def main():
